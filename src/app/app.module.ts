@@ -5,15 +5,19 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule} from '@angular/material/icon';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MainContentComponent } from './main-content/main-content.component';
+import { FirebaseTestComponent } from './firebase-test/firebase-test.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
-    MainContentComponent
+    MainContentComponent,
+    FirebaseTestComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

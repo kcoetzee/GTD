@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'next-actions', component: HomeComponent },
   { path: 'calender', component: HomeComponent },
   { path: 'projects', component: HomeComponent },
-  { path: 'waiting-for', component: HomeComponent }
+  { path: 'waiting-for', component: HomeComponent },
   { path: 'list', component: EditListComponent}
 ];
 

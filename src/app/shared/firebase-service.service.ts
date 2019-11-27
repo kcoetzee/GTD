@@ -82,7 +82,7 @@ export class FirebaseService {
           this.lists.push(model);
         });
         this.listsUpdated.emit(this.lists);
-        this.createTasks();
+        //this.createTasks();
       });
   }
 

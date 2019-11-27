@@ -29,7 +29,7 @@ export class FirebaseService {
         // Will be called async so getalltasks will not necessarily have the new task yet
         // Refresh page
   //       this.createTask();
-        this.getAllTasks();
+        //this.getAllTasks();
         this.getAllLists();
       }
     });

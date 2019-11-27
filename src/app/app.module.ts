@@ -16,6 +16,7 @@ import { DashboardCalenderComponent } from './dashboard-calender/dashboard-calen
 import { DashboardProjectsComponent } from './dashboard-projects/dashboard-projects.component';
 import { DashboardWaitingComponent } from './dashboard-waiting/dashboard-waiting.component';
 import { EditListComponent } from './edit-list/edit-list.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { EditListComponent } from './edit-list/edit-list.component';
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

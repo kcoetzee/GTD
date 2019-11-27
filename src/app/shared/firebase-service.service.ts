@@ -5,21 +5,12 @@ import 'firebase/database';
 import 'firebase/auth';
 import { TaskModel } from '../models/task.model';
 import { ListModel } from '../models/list.model';
+import { firebaseconfig } from 'src/environments/firebaseconfig';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
-  firebaseConfig = {
-    apiKey: 'AIzaSyCZawieb0LESNiczNf2WkjuCf9rYGy3InM',
-    authDomain: 'gtdx-400d7.firebaseapp.com',
-    databaseURL: 'https://gtdx-400d7.firebaseio.com',
-    projectId: 'gtdx-400d7',
-    storageBucket: 'gtdx-400d7.appspot.com',
-    messagingSenderId: '542122362028',
-    appId: '1:542122362028:web:d3e2c119344886050a4b09',
-    measurementId: 'G-7RLE6DS4NY'
-  };
 
   database: firebase.database.Database;
   lists: ListModel[] = [];
@@ -28,10 +19,10 @@ export class FirebaseService {
   @Output() tasksUpdated = new EventEmitter<TaskModel[]>();
 
   constructor() {
-    firebase.initializeApp(this.firebaseConfig);
+    firebase.initializeApp(firebaseconfig.config);
     firebase
       .auth()
-      .signInWithEmailAndPassword('grantv@bbd.co.za', 'Test123$456');
+      .signInWithEmailAndPassword(firebaseconfig.username, firebaseconfig.password);
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         // For testing example only
@@ -82,7 +73,7 @@ export class FirebaseService {
           this.lists.push(model);
         });
         this.listsUpdated.emit(this.lists);
-        //this.createTasks();
+        // this.createTasks();
       });
   }
 

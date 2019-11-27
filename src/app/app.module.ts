@@ -5,11 +5,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatIconModule} from '@angular/material/icon';
+import { MatIconModule, MatButtonModule, MatMenuModule, MatCheckboxModule } from '@angular/material';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MainContentComponent } from './main-content/main-content.component';
 import { FirebaseTestComponent } from './firebase-test/firebase-test.component';
 import { HomeComponent } from './home/home.component';
+import { EditListComponent } from './edit-list/edit-list.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +18,18 @@ import { HomeComponent } from './home/home.component';
     SidebarComponent,
     MainContentComponent,
     FirebaseTestComponent,
-    HomeComponent
+    HomeComponent,
+    EditListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

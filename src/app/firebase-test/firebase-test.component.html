@@ -1,1 +1,17 @@
-<p>firebase-test works!</p>
+<h1>Firebase Test</h1>
+<hr>
+<h2>Lists : </h2>
+<table>
+    <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Type</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let list of lists">
+            <td> {{ list.Id}} </td>
+            <td> {{ list.Name}} </td>
+            <td> {{ list.Type }} </td>
+        </tr>
+    </tbody>
+</table>

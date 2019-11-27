@@ -3,12 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { FirebaseTestComponent } from './firebase-test/firebase-test.component';
 import { HomeComponent } from './home/home.component';
+import { EditListComponent } from './edit-list/edit-list.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'firebase', component: FirebaseTestComponent }
+  { path: 'firebase', component: FirebaseTestComponent },
+  { path: 'list', component: EditListComponent}
 ];
 
 @NgModule({

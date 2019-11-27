@@ -1,6 +1,11 @@
 <div class="container-fluid ">
     <div class="row page-wrapper">
       <app-sidebar class="col-md-2 sidebar"></app-sidebar>
-      <app-main-content class="col-md-10 main-content"></app-main-content>
+      <app-main-content class="col-md-10 main-content" *ngIf="router.url === '/home'"></app-main-content>
+      <app-dashboard-in class="col-md-10 main-content" *ngIf="router.url === '/in'"></app-dashboard-in>
+      <app-dashboard-next-actions class="col-md-10 main-content" *ngIf="router.url === '/next-actions'"></app-dashboard-next-actions>
+      <app-dashboard-projects class="col-md-10 main-content" *ngIf="router.url === '/projects'"></app-dashboard-projects>
+      <app-dashboard-calender class="col-md-10 main-content" *ngIf="router.url === '/calender'"></app-dashboard-calender>
+      <app-dashboard-waiting class="col-md-10 main-content" *ngIf="router.url === '/waiting-for'"></app-dashboard-waiting>
     </div>
 </div>

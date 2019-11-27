@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../shared/firebase-service.service';
 import { TaskModel } from '../models/task.model';
-import { element } from 'protractor';
+import { v4 as uuid } from 'uuid';
 
 @Component({
   selector: 'app-edit-list',
@@ -26,19 +26,21 @@ export class EditListComponent implements OnInit {
   }
 
   DeleteTask(id: string) {
-    console.log(id);
+    this.tasks.splice(this.tasks.findIndex(x => x.Id === id), 1);
+    this.firebaseService.deleteTask(id);
   }
 
   NewTask() {
     if (this.newTaskValue) {
       const model = new TaskModel(
-        null,
+        uuid(),
         '',
         this.listId,
         '',
         false,
         null,
-        []
+        [], 
+        false
       );
       let tags: string[] = [];
       let projects: string[] = [];
@@ -68,5 +70,19 @@ export class EditListComponent implements OnInit {
         this.firebaseService.createTask(model);
       }
     }
+  }
+
+  MoveToList(listId: string, id: string) {
+    const model = this.tasks.find(x => x.Id === id);
+    console.log(model);
+    if (model) {
+      model.List = listId;
+      this.tasks.splice(this.tasks.findIndex(x => x.Id === id), 1);
+      this.firebaseService.updateTask(model);
+    }
+  }
+
+  UpdateCompleted(data: TaskModel) {
+    this.firebaseService.updateTask(data);
   }
 }

@@ -39,8 +39,20 @@ export class FirebaseService {
     firebase
       .firestore()
       .collection('tasks')
-      .doc()
+      .doc(model.Id)
       .set(Object.assign({}, model));
+  }
+
+  updateTask(model: TaskModel) {
+    firebase
+      .firestore()
+      .collection('tasks')
+      .doc(model.Id)
+      .update(Object.assign({}, model));
+  }
+
+  deleteTask(id: string) {
+    firebase.firestore().collection('tasks').doc(id).delete();
   }
 
   getAllTasks() {
@@ -83,15 +95,15 @@ export class FirebaseService {
   }
 
   createTasks() {
-    this.createTask(new TaskModel(null, 'Bake a cake', this.getListId('IN'), '', false, null, []));
-    this.createTask(new TaskModel(null, 'Sell the house', this.getListId('IN'), '', false, null, []));
-    this.createTask(new TaskModel(null, 'Paint the town red', this.getListId('IN'), '', false, null, []));
-    this.createTask(new TaskModel(null, 'Send birthday email to Mom', this.getListId('NA'), '', false, null, ['home', 'birthdays']));
-    this.createTask(new TaskModel(null, 'Buy curtain railings', this.getListId('NA'), 'Renovations', false, null, ['home']));
-    this.createTask(new TaskModel(null, 'Select wall paint colour', this.getListId('NA'), 'Renovations', false, null, []));
-    this.createTask(new TaskModel(null, 'Sales report from Brian', this.getListId('WF'), '', false, null, []));
-    this.createTask(new TaskModel(null, 'Pay rent', this.getListId('CA'), '', false, new Date(2019, 11, 29), []));
-    this.createTask(new TaskModel(null, 'Watch the new superhero movie', this.getListId('CA'), '', false, new Date(2019, 11, 29), []));
+    this.createTask(new TaskModel(null, 'Bake a cake', this.getListId('IN'), '', false, null, [], false));
+    this.createTask(new TaskModel(null, 'Sell the house', this.getListId('IN'), '', false, null, [], false));
+    this.createTask(new TaskModel(null, 'Paint the town red', this.getListId('IN'), '', false, null, [], false));
+    this.createTask(new TaskModel(null, 'Send birthday email to Mom', this.getListId('NA'), '', false, null, ['home', 'birthdays'], false));
+    this.createTask(new TaskModel(null, 'Buy curtain railings', this.getListId('NA'), 'Renovations', false, null, ['home'], false));
+    this.createTask(new TaskModel(null, 'Select wall paint colour', this.getListId('NA'), 'Renovations', false, null, [], false));
+    this.createTask(new TaskModel(null, 'Sales report from Brian', this.getListId('WF'), '', false, null, [], false));
+    this.createTask(new TaskModel(null, 'Pay rent', this.getListId('CA'), '', false, new Date(2019, 11, 29), [], false));
+    this.createTask(new TaskModel(null, 'Watch the new superhero movie', this.getListId('CA'), '', false, new Date(2019, 11, 29), [], false));
   }
 
   getTasksForType(listType: string): TaskModel[] {

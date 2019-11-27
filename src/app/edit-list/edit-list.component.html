@@ -16,7 +16,7 @@
             >
           </li>
           <li class="list-group-item bg-primary" *ngFor="let task of tasks">
-              <mat-checkbox></mat-checkbox>
+              <mat-checkbox [(ngModel)]="task.Completed" (change)="UpdateCompleted(task)"></mat-checkbox>
               {{ task.Name }}
               <div class="badge badge-pill badge-light mr-1" *ngFor="let tag of task.Tags" > {{ tag }} </div>
               <div class="badge badge-pill badge-dark" *ngIf="task.Project">{{ task.Project }}</div>
@@ -30,7 +30,7 @@
                 <mat-icon>menu</mat-icon>
               </button>
               <mat-menu #menu="matMenu">
-                <button mat-menu-item (click)="DeleteTask(task.Name)">
+                <button mat-menu-item (click)="DeleteTask(task.Id)">
                   <mat-icon>delete</mat-icon>
                   <span>Delete</span>
                 </button>
@@ -51,6 +51,7 @@
                 mat-icon-button
                 color="accent"
                 aria-label="Move to Next Actions"
+                (click)="MoveToList('kEqnkqbb9FskswaOT685', task.Id)"
               >
                 <mat-icon>arrow_forward</mat-icon>
               </button>

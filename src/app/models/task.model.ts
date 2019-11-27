@@ -6,5 +6,6 @@ export class TaskModel {
     public Project: string,
     public Completed: boolean,
     public CompletedByDate: Date,
-    public Tags: string[]) {}
+    public Tags: string[],
+    public Deleted: boolean) {}
 }

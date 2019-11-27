@@ -17,6 +17,7 @@ import { DashboardProjectsComponent } from './dashboard-projects/dashboard-proje
 import { DashboardWaitingComponent } from './dashboard-waiting/dashboard-waiting.component';
 import { EditListComponent } from './edit-list/edit-list.component';
 import { FormsModule } from '@angular/forms';
+import { DashboardHeaderComponent } from './dashboard-header/dashboard-header.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { FormsModule } from '@angular/forms';
     DashboardCalenderComponent,
     DashboardProjectsComponent,
     DashboardWaitingComponent,
-    EditListComponent
+    EditListComponent,
+    DashboardHeaderComponent
 
   ],
   imports: [

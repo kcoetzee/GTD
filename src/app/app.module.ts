@@ -16,6 +16,7 @@ import { DashboardCalenderComponent } from './dashboard-calender/dashboard-calen
 import { DashboardProjectsComponent } from './dashboard-projects/dashboard-projects.component';
 import { DashboardWaitingComponent } from './dashboard-waiting/dashboard-waiting.component';
 import { EditListComponent } from './edit-list/edit-list.component';
+import { DashboardHeaderComponent } from './dashboard-header/dashboard-header.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { EditListComponent } from './edit-list/edit-list.component';
     DashboardCalenderComponent,
     DashboardProjectsComponent,
     DashboardWaitingComponent,
-    EditListComponent
+    EditListComponent,
+    DashboardHeaderComponent
 
   ],
   imports: [

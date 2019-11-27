@@ -16,11 +16,36 @@
             >
           </li>
           <li class="list-group-item bg-primary" *ngFor="let task of tasks">
-              <mat-checkbox [(ngModel)]="task.Completed" (change)="UpdateCompleted(task)"></mat-checkbox>
-              {{ task.Name }}
-              <div class="badge badge-pill badge-light mr-1" *ngFor="let tag of task.Tags" > {{ tag }} </div>
-              <div class="badge badge-pill badge-dark" *ngIf="task.Project">{{ task.Project }}</div>
-            <span class="hover-button-show">
+            <mat-checkbox
+              *ngIf="!task.Editing"
+              [(ngModel)]="task.Completed"
+              (change)="UpdateCompleted(task)"
+            ></mat-checkbox>
+            <span (click)="StartEdit(task)" *ngIf="!task.Editing">{{
+              task.Name
+            }}</span>
+            <input
+              *ngIf="task.Editing"
+              class="form-control"
+              [(ngModel)]="task.Name"
+              placeholder="Enter task description with optional @tags or project."
+              (keyup.enter)="EndEdit(task)"
+            />
+            <span *ngIf="!task.Editing">
+              <div
+                class="badge badge-pill badge-light mr-1"
+                *ngFor="let tag of task.Tags"
+              >
+                {{ tag }}
+              </div>
+            </span>
+            <div
+              class="badge badge-pill badge-dark"
+              *ngIf="task.Project && !task.Editing"
+            >
+              {{ task.Project }}
+            </div>
+            <span class="hover-button-show" *ngIf="!task.Editing">
               <button
                 mat-icon-button
                 color="accent"
@@ -39,13 +64,13 @@
                   <span>Someday / maybe</span>
                 </button>
                 <button mat-menu-item>
-                        <mat-icon>calendar_today</mat-icon>
-                        <span>Calendar</span>
-                      </button>
+                  <mat-icon>calendar_today</mat-icon>
+                  <span>Calendar</span>
+                </button>
               </mat-menu>
             </span>
-            
-            <span class="hover-button-show">
+
+            <span class="hover-button-show" *ngIf="!task.Editing">
               <button
                 class="float-right"
                 mat-icon-button

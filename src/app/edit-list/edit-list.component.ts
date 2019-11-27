@@ -39,7 +39,8 @@ export class EditListComponent implements OnInit {
         '',
         false,
         null,
-        [], 
+        [],
+        false,
         false
       );
       let tags: string[] = [];
@@ -84,5 +85,50 @@ export class EditListComponent implements OnInit {
 
   UpdateCompleted(data: TaskModel) {
     this.firebaseService.updateTask(data);
+  }
+
+  StartEdit(data: TaskModel) {
+    data.Editing = true;
+    if (data.Tags) {
+      data.Tags.forEach(element => {
+        data.Name += ' ' + element;
+      });
+    }
+    if (data.Project) {
+      data.Name += ' Project ' + data.Project;
+    }
+
+  }
+
+  EndEdit(data: TaskModel) {
+    data.Editing = false;
+    if (data.Name) {
+      let tags: string[] = [];
+      let projects: string[] = [];
+      let text = data.Name;
+      data.Tags = [];
+      data.Project = '';
+
+      tags = text.match(/@\w*/gi);
+      if (tags) {
+        tags.forEach(element => {
+          text = text.replace(element, '');
+          data.Tags.push(element.toLowerCase());
+        });
+      }
+      // take only the first project match found
+      projects = text.match(/Project .*/gi);
+      if (projects) {
+        if (projects.length > 0) {
+          text = text.replace(projects[0], '');
+          data.Project = projects[0].substr(8);
+        }
+      }
+      text = text.trim();
+      if (text) {
+        data.Name = text;
+        this.firebaseService.updateTask(data);
+      }
+    }
   }
 }

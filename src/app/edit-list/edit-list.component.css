@@ -1,0 +1,7 @@
+li span.hover-button-show {
+    visibility: hidden;
+}
+
+li:hover span.hover-button-show {
+    visibility: visible;
+}

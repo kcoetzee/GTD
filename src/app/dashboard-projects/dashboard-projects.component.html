@@ -1,15 +1,22 @@
 <app-dashboard-header textTitle="Projects"></app-dashboard-header>
 
-<div class="project-list">
-    <h6>Acturis</h6>
-</div>
 
-<div class="project-list">
-    <h6>Acturis</h6>
-</div>
+<div *ngFor='let project of projects' class="project-list"> 
+    <h6 class="bg-primary">{{project.Id}}</h6> 
+    <ul class="list-group">
+        <li *ngFor='let task of project.Tasks' class="list-group-item">
+            <div class="row">
+                <div class="col-10">
+                    <span *ngIf="task.Completed === false">{{task.Name}}</span>
+                    <s *ngIf="task.Completed === true">{{task.Name}}</s>
+                </div>
+                <div class="col-2">
+                    <i *ngIf="task.Completed === false" class="fas fa-check-square fa-2x text-secondary"></i>
+                    <i *ngIf="task.Completed === true" class="fas fa-check-square fa-2x text-success"></i>
+                </div>
 
-<div class="project-list">
-    <h6>Acturis</h6>
+            </div>
+        </li>
+    </ul>
 </div>
-
 

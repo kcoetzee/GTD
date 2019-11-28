@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TaskModel, ProjectModel } from '../models/task.model';
+import { ProjectServiceService } from '../project-service.service';
 
 @Component({
   selector: 'app-dashboard-projects',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardProjectsComponent implements OnInit {
 
-  constructor() { }
+  projects: ProjectModel[];
+  constructor(private projectService :ProjectServiceService) { }
+
+  getTasks(): void {
+    this.projects = this.projectService.getTasks();
+  }
 
   ngOnInit() {
+    this.getTasks();
   }
 
 }

@@ -8,3 +8,8 @@ export class TaskModel {
     public CompletedByDate: Date,
     public Tags: string[]) {}
 }
+
+export class ProjectModel {
+    public Id: string;
+    public Tasks: TaskModel[];
+}

@@ -8,5 +8,10 @@ export class TaskModel {
     public CompletedByDate: Date,
     public Tags: string[],
     public Deleted: boolean,
-    public Editing: boolean) {}
+    public Editing: boolean){}
+}
+
+export class ProjectModel {
+    public Id: string;
+    public Tasks: TaskModel[];
 }

@@ -23,3 +23,11 @@ h6{
     color: white;
     padding: 10px;
 }
+
+.fas{
+    cursor: pointer;
+}
+
+.fa-trash-alt{
+    margin-left: 20px;
+}

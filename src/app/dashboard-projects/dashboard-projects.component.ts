@@ -16,6 +16,28 @@ export class DashboardProjectsComponent implements OnInit {
     this.projects = this.projectService.getTasks();
   }
 
+  taskDone(name) : void {
+    for (let project of this.projects){
+      for (let task of project.Tasks){
+          if (task.Name === name){
+            task.Completed = true;
+          }
+      }
+    }
+  }
+
+  deleteTask(name) : void {
+    console.log("GOT HERE")
+    for (let project of this.projects){
+      for (let task of project.Tasks){
+          if (task.Name === name){
+            task.Deleted = true;
+            console.log("GOT HERE")
+          }
+      }
+    }   
+  }
+
   ngOnInit() {
     this.getTasks();
   }

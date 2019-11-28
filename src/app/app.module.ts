@@ -5,7 +5,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatIconModule, MatButtonModule, MatMenuModule, MatCheckboxModule } from '@angular/material';
+import { MatIconModule, MatButtonModule, MatMenuModule, MatCheckboxModule, MatProgressSpinnerModule } from '@angular/material';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MainContentComponent } from './main-content/main-content.component';
 import { FirebaseTestComponent } from './firebase-test/firebase-test.component';
@@ -16,6 +16,7 @@ import { DashboardCalenderComponent } from './dashboard-calender/dashboard-calen
 import { DashboardProjectsComponent } from './dashboard-projects/dashboard-projects.component';
 import { DashboardWaitingComponent } from './dashboard-waiting/dashboard-waiting.component';
 import { EditListComponent } from './edit-list/edit-list.component';
+import { FormsModule } from '@angular/forms';
 import { DashboardHeaderComponent } from './dashboard-header/dashboard-header.component';
 
 
@@ -43,7 +44,9 @@ import { DashboardHeaderComponent } from './dashboard-header/dashboard-header.co
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    FormsModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

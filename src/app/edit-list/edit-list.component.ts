@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FirebaseService } from '../shared/firebase-service.service';
 import { TaskModel } from '../models/task.model';
 import { v4 as uuid } from 'uuid';
@@ -11,8 +11,12 @@ import { v4 as uuid } from 'uuid';
 export class EditListComponent implements OnInit {
   tasks: TaskModel[] = [];
   newTaskValue = '';
-  listId = 'I4laNXev392KK5RNlM0W'; // this should be dynamic !!
+  @Input() listId: string; // this should be dynamic !!
+  @Input() listName: string;
+  @Input() listColour: string;
+  @Input() canAdd = false;
   isBusy = false;
+  lastName = '';
 
   constructor(private firebaseService: FirebaseService) {}
 
@@ -23,6 +27,7 @@ export class EditListComponent implements OnInit {
     });
     this.isBusy = true;
     this.firebaseService.getAllTasks();
+    console.log(this.listId);
   }
 
   DeleteTask(id: string) {
@@ -105,6 +110,7 @@ export class EditListComponent implements OnInit {
   }
 
   StartEdit(data: TaskModel) {
+    this.lastName = data.Name;
     data.Editing = true;
     if (data.Tags) {
       data.Tags.forEach(element => {
@@ -125,6 +131,7 @@ export class EditListComponent implements OnInit {
       text = this.getTags(data, text);
       text = this.getProject(data, text);
       text = text.trim();
+      console.log(text);
       if (text) {
         data.Name = text;
         this.firebaseService.updateTask(data);
@@ -135,5 +142,7 @@ export class EditListComponent implements OnInit {
   CancelEdit(task: TaskModel) {
     console.log(task);
     task.Editing = false;
+    task.Name = this.lastName;
+    this.lastName = '';
   }
 }

@@ -1,14 +1,15 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { FirebaseService } from '../shared/firebase-service.service';
 import { TaskModel } from '../models/task.model';
 import { v4 as uuid } from 'uuid';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-edit-list',
   templateUrl: './edit-list.component.html',
   styleUrls: ['./edit-list.component.css']
 })
-export class EditListComponent implements OnInit {
+export class EditListComponent implements OnInit, OnDestroy {
   tasks: TaskModel[] = [];
   newTaskValue = '';
   @Input() listId: string; // this should be dynamic !!
@@ -17,17 +18,21 @@ export class EditListComponent implements OnInit {
   @Input() canAdd = false;
   isBusy = false;
   lastName = '';
+  subs: Subscription;
 
   constructor(private firebaseService: FirebaseService) {}
 
   ngOnInit() {
-    this.firebaseService.tasksUpdated.subscribe((res: TaskModel[]) => {
+    this.subs =this.firebaseService.tasksUpdated.subscribe((res: TaskModel[]) => {
       this.tasks = res.filter(x => x.List === this.listId);
       this.isBusy = false;
     });
     this.isBusy = true;
     this.firebaseService.getAllTasks();
-    console.log(this.listId);
+  }
+
+  ngOnDestroy() {
+    this.subs.unsubscribe();
   }
 
   DeleteTask(id: string) {
@@ -58,7 +63,6 @@ export class EditListComponent implements OnInit {
       text = text.trim();
       if (text) {
         model.Name = text;
-        console.log(model);
         const newTask: TaskModel[] = [model];
         this.tasks = newTask.concat(this.tasks);
         this.newTaskValue = '';
@@ -94,7 +98,6 @@ export class EditListComponent implements OnInit {
 
   MoveToList(listId: string, id: string) {
     const model = this.tasks.find(x => x.Id === id);
-    console.log(model);
     if (model) {
       model.List = listId;
       this.tasks.splice(
@@ -131,7 +134,6 @@ export class EditListComponent implements OnInit {
       text = this.getTags(data, text);
       text = this.getProject(data, text);
       text = text.trim();
-      console.log(text);
       if (text) {
         data.Name = text;
         this.firebaseService.updateTask(data);
@@ -140,7 +142,6 @@ export class EditListComponent implements OnInit {
   }
 
   CancelEdit(task: TaskModel) {
-    console.log(task);
     task.Editing = false;
     task.Name = this.lastName;
     this.lastName = '';

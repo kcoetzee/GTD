@@ -9,7 +9,6 @@ import { MatIconModule, MatButtonModule, MatMenuModule, MatCheckboxModule, MatPr
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MainContentComponent } from './main-content/main-content.component';
 import { FirebaseTestComponent } from './firebase-test/firebase-test.component';
-import { HomeComponent } from './home/home.component';
 import { DashboardInComponent } from './dashboard-in/dashboard-in.component';
 import { DashboardNextActionsComponent } from './dashboard-next-actions/dashboard-next-actions.component';
 import { DashboardCalenderComponent } from './dashboard-calender/dashboard-calender.component';
@@ -26,7 +25,6 @@ import { DashboardHeaderComponent } from './dashboard-header/dashboard-header.co
     SidebarComponent,
     MainContentComponent,
     FirebaseTestComponent,
-    HomeComponent,
     DashboardInComponent,
     DashboardNextActionsComponent,
     DashboardCalenderComponent,

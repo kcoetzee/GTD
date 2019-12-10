@@ -1,0 +1,16 @@
+<h2 mat-dialog-title class="text-center">Buy dog food</h2>
+<hr>
+<p>Next actions</p>
+<div class="input-group mb-3" *ngFor='let item of nextActions'>
+        <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-angle-right"></i></span>
+              </div>
+    <input type="text" class="form-control" value="Buy dog food" aria-label="Username" aria-describedby="basic-addon1">
+</div>    
+<button type="button" class="btn btn-outline-secondary" (click)="addAction()"><i class="fas fa-plus-circle btn-add"></i></button>
+<hr>
+<div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary">Left</button>
+        <button type="button" class="btn btn-secondary">Middle</button>
+        <button type="button" class="btn btn-secondary">Right</button>
+</div>

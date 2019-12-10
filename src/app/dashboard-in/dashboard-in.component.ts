@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog, MatDialogConfig} from "@angular/material";
+import { DialogNextActionComponent } from './dialog-next-action.component';
 
 @Component({
   selector: 'app-dashboard-in',
@@ -7,7 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardInComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dialog: MatDialog ) { }
+
+  openDialog(): void {
+
+    const dialogConfig = new MatDialogConfig();
+
+    //dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    this.dialog.open(DialogNextActionComponent, dialogConfig);
+  }
 
   ngOnInit() {
   }

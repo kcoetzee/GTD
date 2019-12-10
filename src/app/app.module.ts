@@ -5,7 +5,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatIconModule, MatButtonModule, MatMenuModule, MatCheckboxModule, MatProgressSpinnerModule } from '@angular/material';
+import { MatIconModule, MatButtonModule, MatMenuModule, MatCheckboxModule, MatProgressSpinnerModule, MatInputModule, MatFormField, MatFormFieldModule, MatDialogModule } from '@angular/material';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MainContentComponent } from './main-content/main-content.component';
 import { FirebaseTestComponent } from './firebase-test/firebase-test.component';
@@ -17,6 +17,7 @@ import { DashboardWaitingComponent } from './dashboard-waiting/dashboard-waiting
 import { EditListComponent } from './edit-list/edit-list.component';
 import { FormsModule } from '@angular/forms';
 import { DashboardHeaderComponent } from './dashboard-header/dashboard-header.component';
+import { DialogNextActionComponent } from './dashboard-in/dialog-next-action.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { DashboardHeaderComponent } from './dashboard-header/dashboard-header.co
     DashboardProjectsComponent,
     DashboardWaitingComponent,
     EditListComponent,
-    DashboardHeaderComponent
+    DashboardHeaderComponent,
+    DialogNextActionComponent
 
   ],
   imports: [
@@ -44,9 +46,14 @@ import { DashboardHeaderComponent } from './dashboard-header/dashboard-header.co
     MatMenuModule,
     MatCheckboxModule,
     FormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatFormFieldModule,
+    MatDialogModule
   ],
   providers: [],
+  entryComponents: [
+    DialogNextActionComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

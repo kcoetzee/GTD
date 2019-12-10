@@ -9,12 +9,13 @@ import { MainContentComponent } from './main-content/main-content.component';
 import { DashboardCalenderComponent } from './dashboard-calender/dashboard-calender.component';
 import { DashboardProjectsComponent } from './dashboard-projects/dashboard-projects.component';
 import { DashboardWaitingComponent } from './dashboard-waiting/dashboard-waiting.component';
+import { DashboardOverviewComponent } from './dashboard-overview/dashboard-overview.component';
 
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: MainContentComponent },
+  { path: 'home', component: DashboardOverviewComponent },
   { path: 'firebase', component: FirebaseTestComponent },
   { path: 'in', component: DashboardInComponent },
   { path: 'next-actions', component: DashboardNextActionsComponent },

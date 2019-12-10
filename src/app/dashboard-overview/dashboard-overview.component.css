@@ -1,0 +1,21 @@
+.character-panel {
+    background-color: white;
+    margin-left: 20px;
+    border-radius: 15px 15px 5px 5px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.character-image {
+    width: inherit;
+    height: 300px;
+    margin: auto auto;
+}
+
+.character-header {
+    background-color: #37588c;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    border-radius: 15px 15px 0px 0px;
+    
+}

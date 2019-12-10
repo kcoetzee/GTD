@@ -18,6 +18,7 @@ import { EditListComponent } from './edit-list/edit-list.component';
 import { FormsModule } from '@angular/forms';
 import { DashboardHeaderComponent } from './dashboard-header/dashboard-header.component';
 import { DialogNextActionComponent } from './dashboard-in/dialog-next-action.component';
+import { DashboardOverviewComponent } from './dashboard-overview/dashboard-overview.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { DialogNextActionComponent } from './dashboard-in/dialog-next-action.com
     DashboardWaitingComponent,
     EditListComponent,
     DashboardHeaderComponent,
-    DialogNextActionComponent
+    DialogNextActionComponent,
+    DashboardOverviewComponent
 
   ],
   imports: [

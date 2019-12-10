@@ -9,9 +9,7 @@ h5{
     text-align: center;
     padding: 10px;
     font-size: 35px;
-    font-family: 'Rubik', sans-serif;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+    font-family: 'Inknut Antiqua', serif;
 }
 
 .item{
@@ -31,4 +29,8 @@ h5{
 
 .list-group{
     margin-top: 50px;
+}
+
+.logo {
+    width: 100%;
 }

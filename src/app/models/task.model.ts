@@ -11,6 +11,15 @@ export class TaskModel {
     public Editing: boolean){}
 }
 
+export class ITask {
+    name: string;
+}
+
+export class IQuest {
+    name: string;
+    tasks: ITask[];
+}
+
 export class ProjectModel {
     public Id: string;
     public Tasks: TaskModel[];

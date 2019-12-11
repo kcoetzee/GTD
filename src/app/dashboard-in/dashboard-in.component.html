@@ -17,10 +17,10 @@
     <div class="col-md-6">        
       <div class="card item-list">
           <div class="card-header bg-secondary text-center">
-              <b>32</b> cards left
+              <b>{{tasks?.length + 1}}</b> cards left
             </div>
           <div class="card-body text-center">
-              <h5 class="mt-5">Buy dog food.</h5>
+              <h5 class="mt-5">{{curTask?.name}}</h5>
 
           </div>
           <div class="card-footer text-muted">
@@ -28,7 +28,7 @@
                   <button type="button" class="btn btn-success mr-1"><i class="fas fa-check-circle fa-2x"></i></button>
                   <button type="button" class="btn btn-secondary mr-1"><i class="fas fa-book fa-2x"></i></button>
                   <button type="button" class="btn btn-secondary mr-1"><i class="fas fa-cloud-sun fa-2x"></i></button>
-                  <button type="button" class="btn btn-danger mr-1"><i class="fas fa-trash-alt fa-2x"></i></button>
+                  <button type="button" class="btn btn-danger mr-1" (click)="deleteTask()"><i class="fas fa-trash-alt fa-2x"></i></button>
               </div>
               <button type="button" class="btn btn-primary float-right" (click)="openDialog()"><i class="fas fa-tasks fa-2x"></i></button>
           </div>

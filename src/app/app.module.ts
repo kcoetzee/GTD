@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 import { DashboardHeaderComponent } from './dashboard-header/dashboard-header.component';
 import { DialogNextActionComponent } from './dashboard-in/dialog-next-action.component';
 import { DashboardOverviewComponent } from './dashboard-overview/dashboard-overview.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { DashboardOverviewComponent } from './dashboard-overview/dashboard-overv
     FormsModule,
     MatProgressSpinnerModule,
     MatFormFieldModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule
   ],
   providers: [],
   entryComponents: [

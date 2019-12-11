@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogConfig} from "@angular/material";
 import { DialogNextActionComponent } from './dialog-next-action.component';
+import { TaskService } from '../shared/task-service.service';
+import { ITask } from '../models/task.model';
 
 @Component({
   selector: 'app-dashboard-in',
@@ -9,7 +11,9 @@ import { DialogNextActionComponent } from './dialog-next-action.component';
 })
 export class DashboardInComponent implements OnInit {
 
-  constructor(private dialog: MatDialog ) { }
+  constructor(private dialog: MatDialog, private taskService: TaskService ) { }
+  tasks: ITask[];
+  curTask : ITask;
 
   openDialog(): void {
 
@@ -21,7 +25,17 @@ export class DashboardInComponent implements OnInit {
     this.dialog.open(DialogNextActionComponent, dialogConfig);
   }
 
+  deleteTask(): void {
+    this.curTask = this.tasks.shift();
+  }
+
   ngOnInit() {
+    this.taskService.getTasks().subscribe({
+      next: tasks => {
+        this.tasks = tasks;
+        this.curTask = this.tasks.shift();
+      }
+    })
   }
 
 }

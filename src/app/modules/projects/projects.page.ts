@@ -1,19 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { TaskModel, ProjectModel } from '../models/task.model';
-import { ProjectServiceService } from '../project-service.service';
+import { TaskModel, ProjectModel } from 'src/app/shared/models/task.model';
 
 @Component({
-  selector: 'app-dashboard-projects',
-  templateUrl: './dashboard-projects.component.html',
-  styleUrls: ['./dashboard-projects.component.css']
+  templateUrl: './projects.page.html',
+  styleUrls: ['./projects.page.css']
 })
-export class DashboardProjectsComponent implements OnInit {
+export class ProjectsComponent implements OnInit {
 
   projects: ProjectModel[];
-  constructor(private projectService :ProjectServiceService) { }
+  constructor() { }
 
   getTasks(): void {
-    this.projects = this.projectService.getTasks();
+
   }
 
   taskDone(name) : void {

@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogConfig} from "@angular/material";
 import { DialogNextActionComponent } from './dialog-next-action.component';
-import { TaskService } from '../shared/task-service.service';
-import { ITask } from '../models/task.model';
+import { ITask } from 'src/app/shared/models/task.model';
+import { TaskService } from 'src/app/core/services/task.service';
 
 @Component({
-  selector: 'app-dashboard-in',
-  templateUrl: './dashboard-in.component.html',
-  styleUrls: ['./dashboard-in.component.css']
+  templateUrl: './logbook.page.html',
+  styleUrls: ['./logbook.page.css']
 })
-export class DashboardInComponent implements OnInit {
+export class LogbookComponent implements OnInit {
 
   constructor(private dialog: MatDialog, private taskService: TaskService ) { }
   tasks: ITask[];

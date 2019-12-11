@@ -6,37 +6,32 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule, MatButtonModule, MatMenuModule, MatCheckboxModule, MatProgressSpinnerModule, MatInputModule, MatFormField, MatFormFieldModule, MatDialogModule } from '@angular/material';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { MainContentComponent } from './main-content/main-content.component';
-import { FirebaseTestComponent } from './firebase-test/firebase-test.component';
-import { DashboardInComponent } from './dashboard-in/dashboard-in.component';
-import { DashboardNextActionsComponent } from './dashboard-next-actions/dashboard-next-actions.component';
-import { DashboardCalenderComponent } from './dashboard-calender/dashboard-calender.component';
-import { DashboardProjectsComponent } from './dashboard-projects/dashboard-projects.component';
-import { DashboardWaitingComponent } from './dashboard-waiting/dashboard-waiting.component';
-import { EditListComponent } from './edit-list/edit-list.component';
+import { SidebarComponent } from './modules/dashboard/components/sidebar/sidebar.component';
+import { LogbookComponent } from './modules/logbook/logbook.page';
+import { TasksComponent } from './modules/tasks/tasks.page';
+import { CalenderComponent } from './modules/calender/calender.page';
+import { ProjectsComponent } from './modules/projects/projects.page';
+import { WaitingComponent } from './modules/waiting/waiting.page';
 import { FormsModule } from '@angular/forms';
-import { DashboardHeaderComponent } from './dashboard-header/dashboard-header.component';
-import { DialogNextActionComponent } from './dashboard-in/dialog-next-action.component';
-import { DashboardOverviewComponent } from './dashboard-overview/dashboard-overview.component';
+import { HeaderComponent } from './modules/dashboard/components/header/header.component';
+import { DialogNextActionComponent } from './modules/logbook/dialog-next-action.component';
+import { OverviewComponent } from './modules/overview/overview.page';
 import { HttpClientModule } from '@angular/common/http';
+import { TaskModule } from './modules/tasks/task.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
-    MainContentComponent,
-    FirebaseTestComponent,
-    DashboardInComponent,
-    DashboardNextActionsComponent,
-    DashboardCalenderComponent,
-    DashboardProjectsComponent,
-    DashboardWaitingComponent,
-    EditListComponent,
-    DashboardHeaderComponent,
+    LogbookComponent,
+    TasksComponent,
+    CalenderComponent,
+    ProjectsComponent,
+    WaitingComponent,
+    HeaderComponent,
     DialogNextActionComponent,
-    DashboardOverviewComponent
+    OverviewComponent
 
   ],
   imports: [
@@ -52,7 +47,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatProgressSpinnerModule,
     MatFormFieldModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
+    TaskModule,
   ],
   providers: [],
   entryComponents: [

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogConfig} from "@angular/material";
-import { DialogNextActionComponent } from './dialog-next-action.component';
+import { DialogNextActionComponent } from '../components/dialog-next-action.component';
 import { ITask } from 'src/app/shared/models/task.model';
 import { TaskService } from 'src/app/core/services/task.service';
 

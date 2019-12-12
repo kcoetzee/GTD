@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { TasksComponent } from './pages/tasks.page';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -8,7 +9,8 @@ import { TasksComponent } from './pages/tasks.page';
     TasksComponent
   ],
   imports: [
-    SharedModule
+    SharedModule,
+    RouterModule
   ]
 })
 export class TaskModule { }

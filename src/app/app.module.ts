@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
 
 
 @NgModule({
@@ -22,10 +23,15 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
+
     SharedModule, 
+    CoreModule,
+    
     FormsModule
   ],
-  providers: [],
+  providers: [
+
+  ],
   entryComponents: [
     
   ],

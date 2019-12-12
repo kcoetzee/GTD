@@ -7,7 +7,6 @@ import { SandboxRoutingModule } from './sandbox-routing.module';
 @NgModule({
     imports: [
         SharedModule,
-        CoreModule,
         SandboxRoutingModule
     ],
     exports: [

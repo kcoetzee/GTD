@@ -1,21 +1,24 @@
-import { NgModule } from "@angular/core";
+import { NgModule, Optional, SkipSelf } from "@angular/core";
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireStorageModule } from '@angular/fire/storage';
-import { AngularFireAuthModule } from '@angular/fire/auth';
 import {firebaseConfig} from '../../environments/firebaseconfig';
+
 
 @NgModule({
     imports: [
         AngularFireModule.initializeApp(firebaseConfig.details),
-        AngularFirestoreModule, // imports firebase/firestore, only needed for database features
-        AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-        AngularFireStorageModule // imports firebase/storage only needed for storage features
+        AngularFirestoreModule,
     ],
     exports: [
 
     ]
 })
 export class CoreModule {
-
+    constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
+        if (parentModule) {
+            throw new Error(
+              'CoreModule is already loaded. Import it in the AppModule only'
+            );
+          }
+      }
 }

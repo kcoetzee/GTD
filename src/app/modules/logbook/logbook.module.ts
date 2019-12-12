@@ -3,6 +3,7 @@ import { LogbookComponent } from './pages/logbook.page';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { DialogNextActionComponent } from './components/dialog-next-action.component';
 import { LogbookRoutingModule } from './logbook-routing.module';
+import { MaterialModule } from 'src/app/shared/material.module';
 
 @NgModule({
     declarations: [
@@ -11,7 +12,8 @@ import { LogbookRoutingModule } from './logbook-routing.module';
     ],
     imports: [
         SharedModule,
-        LogbookRoutingModule
+        LogbookRoutingModule,
+        MaterialModule
     ],
     exports: [],
     entryComponents: [

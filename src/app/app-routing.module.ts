@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'calender', loadChildren: () => import('./modules/calender/calender.module').then(m => m.CalenderModule) },
   { path: 'projects', loadChildren: () => import('./modules/projects/projects.module').then(m => m.ProjectsModule) },
   { path: 'waiting-for',  loadChildren: () => import('./modules/waiting/waiting.module').then(m => m.WaitingModule) },
+  { path: 'sandbox',  loadChildren: () => import('./modules/sandbox/sandbox.module').then(m => m.SandboxModule) },
 ];
 
 @NgModule({

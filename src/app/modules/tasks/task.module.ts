@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { TasksComponent } from './pages/tasks.page';
-import { RouterModule } from '@angular/router';
+import { TasksRoutingModule } from './tasks-routing.module';
 
 
 @NgModule({
@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     SharedModule,
-    RouterModule
+    TasksRoutingModule
   ]
 })
 export class TaskModule { }
